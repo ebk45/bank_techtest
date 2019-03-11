@@ -5,8 +5,12 @@ class Bank
     @balance = 0
   end
 
-  def balance
+  def show_balance
     print @balance
+  end
+
+  def deposit(amount)
+    @balance += amount
   end
 
 end
