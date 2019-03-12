@@ -15,4 +15,11 @@ RSpec.describe 'Bank' do
       expect{ acc.deposit(10) }.to change { acc.balance }.by(+10)
     end
   end
+
+  context '#transaction_history' do
+    it 'should store deposits in the transaction history' do
+      acc = Bank.new
+      acc.deposit(10)
+      expect(acc.transaction_history).to include(10)
+    end
 end
