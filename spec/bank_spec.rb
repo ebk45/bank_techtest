@@ -22,4 +22,5 @@ RSpec.describe 'Bank' do
       acc.deposit(10)
       expect(acc.transaction_history).to include(10)
     end
+  end
 end
