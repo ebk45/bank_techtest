@@ -2,7 +2,7 @@ require './lib/bank'
 
 RSpec.describe 'Bank' do
 
-  before :all do
+  before :each do
     @account = Bank.new
   end
 
@@ -20,7 +20,13 @@ RSpec.describe 'Bank' do
 
   context '#withdraw' do
     it 'should deduct the amount from the balance' do
+      @account.deposit(20)
       expect{ @account.withdraw(10) }.to change { @account.balance }.by(-10)
+    end
+
+    it 'raises error if insufficient funds in account' do
+      p @account.balance
+      expect { @account.withdraw(10) }.to raise_error("Insufficient Funds")
     end
   end
 
