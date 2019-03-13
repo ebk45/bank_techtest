@@ -16,8 +16,35 @@ date || credit || debit || balance
 10/01/2012 || 1000.00 || || 1000.00
 ```
 
-#### To run app:
+### User Stories:
 
-To run the application, enter the following command:
+Below are user stories based on the acceptance criteria, these are used as the specifications for the program.
 
-`ruby bank.rb`
+```
+As a customer
+I would like to see the balance
+Of my bank account
+```
+
+```
+As a customer
+I would like to be able to deposit money
+Into my bank account
+```
+
+```
+As a customer
+I would like to be able to withdraw money
+From my bank account
+```
+
+```
+As a customer
+I would like to be able to print my bank statement
+Showing debits/credits and the date the transaction occurred - it should be formatted as shown;
+
+date || credit || debit || balance
+14/01/2012 || || 500.00 || 2500.00
+13/01/2012 || 2000.00 || || 3000.00
+10/01/2012 || 1000.00 || || 1000.00
+```
