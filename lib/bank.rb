@@ -11,13 +11,20 @@ class Bank
   end
 
   def deposit(amount)
-    @transaction_history.push(amount)
     @balance += amount
+    @transaction_history.push({
+      credit: amount,
+      date: Date.today.strftime,
+      balance: @balance})
   end
 
   def withdraw(amount)
     raise 'Insufficient Funds' if @balance - amount < 0
     @balance -= amount
+    @transaction_history.push({
+      debit: amount,
+      date: Date.today.strftime,
+      balance: @balance})
   end
 
 end
