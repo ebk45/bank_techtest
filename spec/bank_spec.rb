@@ -16,6 +16,13 @@ RSpec.describe 'Bank' do
     end
   end
 
+  context '#withdraw' do
+    it 'should deduct the amount from the balance' do
+      acc = Bank.new
+      expect{ acc.withdraw(10) }.to change { acc.balance }.by(-10)
+    end
+  end
+
   context '#transaction_history' do
     it 'should store deposits in the transaction history' do
       acc = Bank.new
