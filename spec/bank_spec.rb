@@ -25,16 +25,16 @@ RSpec.describe 'Bank' do
     end
 
     it 'raises error if insufficient funds in account' do
-      p @account.balance
       expect { @account.withdraw(10) }.to raise_error("Insufficient Funds")
     end
   end
 
   context '#transaction_history' do
     it 'should store the type of transaction, date and balance at time of transaction' do
+      allow(Date).to receive_message_chain(:today, :strftime).and_return('2019-10-03')
       @account.deposit(10)
       @account.withdraw(5)
-      expect(@account.transaction_history).to include({credit: 10, date: '13/03/2019', balance: 10}, {debit: 5, date: '13/03/2019', balance: 5})
+      expect(@account.transaction_history).to include({credit: 10, date: '2019-10-03', balance: 10}, {debit: 5, date: '2019-10-03', balance: 5})
     end
   end
 end
