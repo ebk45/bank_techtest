@@ -31,9 +31,10 @@ RSpec.describe 'Bank' do
   end
 
   context '#transaction_history' do
-    it 'should store deposits in the transaction history' do
+    it 'should store the type of transaction, date and balance at time of transaction' do
       @account.deposit(10)
-      expect(@account.transaction_history).to include(10)
+      @account.withdraw(5)
+      expect(@account.transaction_history).to include({credit: 10, date: '13/03/2019', balance: 10}, {debit: 5, date: '13/03/2019', balance: 5})
     end
   end
 end
